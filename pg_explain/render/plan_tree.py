@@ -60,11 +60,10 @@ def _node_label(node: PlanNode) -> Text:
         if node.sort_method:
             info.append(f" ({node.sort_method})", "dim")
 
-    if node.buffers:
-        hits = node.shared_hit or 0
-        reads = node.shared_read or 0
-        if hits or reads:
-            info.append(f"\n  buffers: hit={hits} read={reads}", "dim")
+    hits = node.shared_hit or 0
+    reads = node.shared_read or 0
+    if hits or reads:
+        info.append(f"\n  buffers: hit={hits} read={reads}", "dim")
 
     t.append(info)
     return t
