@@ -1,7 +1,13 @@
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+
 [project]
 name = "pg-explain"
 version = "0.1.0"
 description = "PostgreSQL query plan visualizer and performance diagnostics for the terminal"
+readme = "README.md"
+license = "MIT"
 requires-python = ">=3.11"
 dependencies = [
     "click>=8.0",
