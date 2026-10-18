@@ -1,9 +1,0 @@
-pyproject.toml
-pg_explain/__init__.py
-pg_explain/__main__.py
-pg_explain.egg-info/PKG-INFO
-pg_explain.egg-info/SOURCES.txt
-pg_explain.egg-info/dependency_links.txt
-pg_explain.egg-info/entry_points.txt
-pg_explain.egg-info/requires.txt
-pg_explain.egg-info/top_level.txt

@@ -1,2 +1,0 @@
-[console_scripts]
-pg-explain = pg_explain.cli:main

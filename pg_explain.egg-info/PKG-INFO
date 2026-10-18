@@ -1,8 +1,0 @@
-Metadata-Version: 2.4
-Name: pg-explain
-Version: 0.1.0
-Summary: PostgreSQL query plan visualizer and performance diagnostics for the terminal
-Requires-Python: >=3.11
-Requires-Dist: click>=8.0
-Requires-Dist: rich>=13.0
-Requires-Dist: psycopg2-binary>=2.9
