@@ -71,7 +71,7 @@ def query(db, query, file_path, read_stdin, as_json, save, verbose, rules, thres
             sys.exit(1)
 
     root, meta = parse_plan(json_str)
-    issues = analyze(root, rule_ids) if not as_json else []
+    issues = analyze(root, rule_ids)
 
     if as_json:
         output = _to_json(root, meta, issues)

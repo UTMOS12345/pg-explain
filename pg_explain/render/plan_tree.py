@@ -36,10 +36,18 @@ def _node_label(node: PlanNode) -> Text:
     if node.relation_name:
         alias_part = f" as {node.alias}" if node.alias and node.alias != node.relation_name else ""
         parts.append(f"on {node.relation_name}{alias_part}")
+    # if node.index_name:
+    #     parts.append(f"({node.index_name})")
+    # if t.plain:
+    #     t.append("  ", "dim")
     if node.index_name:
         parts.append(f"({node.index_name})")
+    if parts:
+        t.append(" " + " ".join(parts), "bold")
     if t.plain:
-        t.append("  ", "dim")
+        t.append("", "dim")
+
+
 
     info = Text()
     if node.has_actuals:

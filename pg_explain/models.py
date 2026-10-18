@@ -201,7 +201,7 @@ class PlanNode:
             if json_key in d:
                 kwargs[field_name] = d[json_key]
 
-        children_data = d.pop("Plans", None)
+        children_data = d.get("Plans")
         children: list[PlanNode] = []
         if isinstance(children_data, list):
             for child in children_data:
