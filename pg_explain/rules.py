@@ -60,15 +60,15 @@ def row_estimate_mismatch(node: PlanNode, root: PlanNode) -> list[Issue]:
     estimated = node.plan_rows
     if actual < 1000:
         return []
-    ratio = abs(actual - estimated) / actual
-    if ratio <= 0.5:
+    factor = max(actual, estimated) / max(min(actual, estimated), 1)
+    if factor < 10:
         return []
 
     rel = node.relation_name or "(subquery)"
     return [
         Issue(
             severity="warning",
-            title=f"Row estimate off by {ratio:.0f}x on {rel}",
+            title=f"Row estimate off by {factor:.0f}x on {rel}",
             description=(
                 f"Estimated: {estimated:,} rows | Actual: {actual:,} rows. "
                 "The planner may choose a suboptimal plan due to this misestimate."

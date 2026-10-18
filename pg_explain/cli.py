@@ -78,7 +78,7 @@ def query(db, query, file_path, read_stdin, as_json, save, verbose, rules, thres
         if save:
             pathlib.Path(save).write_text(output)
         else:
-            console.print(output)
+            click.echo(output)
         return
 
     panels = []
@@ -113,10 +113,10 @@ def file_cmd(db, file_path, as_json, rules):
         sys.exit(1)
 
     root, meta = parse_plan(json_str)
-    issues = analyze(root, rule_ids) if not as_json else []
+    issues = analyze(root, rule_ids)
 
     if as_json:
-        console.print(_to_json(root, meta, issues))
+        click.echo(_to_json(root, meta, issues))
         return
 
     panels = [render_plan_tree(root)]

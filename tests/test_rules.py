@@ -159,3 +159,9 @@ def test_rule_names_registered():
     assert len(RULE_NAMES) >= 10
     for rule_id in ALL_RULES:
         assert rule_id in RULE_NAMES
+
+
+def test_row_estimate_title_shows_factor():
+    n = PlanNode(node_type="Index Scan", relation_name="orders", plan_rows = 100, actual_rows = 10_000)
+    issues = row_estimate_mismatch(n,n)
+    assert '100x' in issues[0].title
